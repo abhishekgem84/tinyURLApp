@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TinyURLAppConfig<setTinyUrl>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.tiny.url.app.TinyURLAppConfig",
+            "projectName": "setTinyUrl",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-TinyURLAppConfig<SetTinyUrl>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.tiny.url.app.TinyURLAppConfig",
+            "projectName": "SetTinyUrl",
+            "args": ""
+        }
+    ]
+}
