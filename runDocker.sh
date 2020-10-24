@@ -1,1 +1,1 @@
-sudo docker run -d -p 8102:8102 tinyurl:latest
+sudo docker run -d -p 8102:8102 --mount source=logging-area,destination=/logs --name tinyurlapp tinyurl:latest 

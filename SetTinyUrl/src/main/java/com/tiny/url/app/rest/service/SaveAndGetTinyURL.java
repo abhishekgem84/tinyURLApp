@@ -1,8 +1,5 @@
 package com.tiny.url.app.rest.service;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.TimeoutException;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,11 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
-import io.github.resilience4j.timelimiter.annotation.TimeLimiter;
 import lombok.extern.slf4j.Slf4j;
-
 import com.tiny.url.app.db.exception.TinySequenceException;
 import com.tiny.url.app.db.service.TinyURLSequenceService;
 import com.tiny.url.app.db.service.TinyURLService;
@@ -48,9 +42,5 @@ public class SaveAndGetTinyURL {
 
 	private String fallback(Exception ex) {
 		return "Getting Error in service " + ex.toString();
-	}
-
-	private CompletableFuture<String> futureFallback(TimeoutException ex) {
-		return CompletableFuture.completedFuture("Recovered specific TimeoutException: " + ex.toString());
 	}
 }
