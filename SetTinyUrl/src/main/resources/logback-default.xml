@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
+<included>
     <property name="APP_LOG" value="d:/logs/tinyurlapp" />
     <appender name="LOG-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -52,4 +51,4 @@
     <root level="ERROR">
         <appender-ref ref="LOG-FILE" />
     </root>
-</configuration>
+</included>
