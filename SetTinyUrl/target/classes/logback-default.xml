@@ -1,0 +1,53 @@
+
+    <property name="APP_LOG" value="d:/logs/tinyurlapp" />
+    <appender name="LOG-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${APP_LOG}/%d{dd-MM-yyyy, aux}/log_%d{HH}.log
+				</fileNamePattern>
+
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] %class{5}
+					- %msg%ex{full}%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="ACCCESS-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${APP_LOG}/%d{dd-MM-yyyy, aux}/access_%d{HH}.log
+				</fileNamePattern>
+
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] %class{5}
+					- %msg%ex{full}%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="REQ-RES-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${APP_LOG}/%d{dd-MM-yyyy, aux}/req_res_%d{HH}.log
+				</fileNamePattern>
+
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] %class{5}
+					- %msg%ex{full}%n</pattern>
+        </encoder>
+    </appender>
+    <!-- logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="DEBUG" additivity="false">
+        <appender-ref ref="ACCCESS-FILE" />
+    </logger>
+    <logger name="org.request.response.logging" level="DEBUG" additivity="false">
+        <appender-ref ref="REQ-RES-FILE" />
+    </logger>
+    <Logger name="org.hibernate.cache" level="debug" additivity="false">
+        <appender-ref ref="LOG-FILE" />
+    </Logger>
+    <Logger name="org.ehcache" level="debug" additivity="false">
+        <appender-ref ref="LOG-FILE" />
+    </Logger -->
+    <root level="ERROR">
+        <appender-ref ref="LOG-FILE" />
+    </root>
