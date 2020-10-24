@@ -1,0 +1,1 @@
+sudo docker run -d -p 8102:8102 tinyurl:latest
