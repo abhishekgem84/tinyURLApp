@@ -1,2 +1,2 @@
 mvn clean install
-sudo docker build SetTinyUrl/. --tag tinyurl:latest
+sudo docker build SetTinyUrl/. --tag SetTinyUrlApp:latest

@@ -1,0 +1,6 @@
+1. Pull the src from github.
+2. run command "sh runBuild.sh"
+    Above command will build project and create docker images
+3. run command "sudo docker volume create --name logging-area" [only if volume is not already created]
+4. run comamnd "sh runDocker,sh"
+    Above comamnd will run newly bulid image into docker container.
