@@ -1,7 +1,7 @@
 FROM openjdk:8-jdk
-RUN apt-get update
-RUN apt-get install net-tools
-RUN apt-get install telnet
+#RUN apt-get update
+#RUN apt-get install net-tools
+#RUN apt-get install telnet
 WORKDIR /usr/src/application
 COPY target/*.jar /usr/src/application
 VOLUME [ "/logs" ]
