@@ -1,0 +1,1 @@
+sudo docker push abhishekgem84/settinyurlapp:latest
