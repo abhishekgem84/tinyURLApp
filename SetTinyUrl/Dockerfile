@@ -1,3 +1,4 @@
+#Create image for set tiny url application 
 FROM openjdk:8-jdk
 #RUN apt-get update
 #RUN apt-get install net-tools
