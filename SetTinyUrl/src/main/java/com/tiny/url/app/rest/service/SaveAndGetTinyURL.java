@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import com.tiny.url.app.db.exception.TinySequenceException;
 import com.tiny.url.app.db.service.TinyURLSequenceService;
@@ -31,6 +32,7 @@ public class SaveAndGetTinyURL {
 		this.tinyURLSequenceService.setSequenceStore(TinyURLSequenceService.SEQUENCE_KEY);
 	}
 
+	@Operation(summary = "Get tiny URL from original URL",tags = {"gettinyurl"})
 	@PostMapping(path = "/getShortURL", consumes = "application/json", produces = "application/json")
 	//@TimeLimiter(name = "application1") not implementing this as reactor package will bre required
 	@CircuitBreaker(name = "application1", fallbackMethod = "fallback")
