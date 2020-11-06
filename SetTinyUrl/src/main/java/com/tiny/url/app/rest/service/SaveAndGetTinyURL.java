@@ -15,6 +15,7 @@ import com.tiny.url.app.db.exception.TinySequenceException;
 import com.tiny.url.app.db.service.TinyURLSequenceService;
 import com.tiny.url.app.db.service.TinyURLService;
 import com.tiny.url.app.rest.service.request.pojo.LongUrlDetailsPojo;
+import com.tiny.url.app.rest.service.response.pojo.TinyUrlDetailsPojo;
 
 @RestController
 @RequestMapping(path = "/api/v1")
@@ -32,14 +33,15 @@ public class SaveAndGetTinyURL {
 		this.tinyURLSequenceService.setSequenceStore(TinyURLSequenceService.SEQUENCE_KEY);
 	}
 
-	@Operation(summary = "Get tiny URL from original URL",tags = {"gettinyurl"})
+	@Operation(summary = "Get tiny URL from original URL", tags = { "gettinyurl" })
 	@PostMapping(path = "/getShortURL", consumes = "application/json", produces = "application/json")
-	//@TimeLimiter(name = "application1") not implementing this as reactor package will bre required
+	// @TimeLimiter(name = "application1") not implementing this as reactor package
+	// will bre required
 	@CircuitBreaker(name = "application1", fallbackMethod = "fallback")
-	public String convertToShortUrl(@Valid @RequestBody LongUrlDetailsPojo longUrlDetailsPojo)
+	public TinyUrlDetailsPojo convertToShortUrl(@Valid @RequestBody LongUrlDetailsPojo longUrlDetailsPojo)
 			throws TinySequenceException {
 		log.info("Request received ....");
-		return tinyURLService.setTinyURL(longUrlDetailsPojo.getLongUrl());
+		return new TinyUrlDetailsPojo(tinyURLService.setTinyURL(longUrlDetailsPojo.getLongUrl()));
 	}
 
 	private String fallback(Exception ex) {
