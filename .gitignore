@@ -12,6 +12,7 @@
 
 # Package Files #
 *.jar
+*.jar.*
 *.war
 *.nar
 *.ear
@@ -27,3 +28,13 @@ hs_err_pid*
 target/
 /target
 /target/
+\target\**
+\*\target\**
+\target
+SetTinyUrl\target
+/*/target/
+\*\target\
+\SetTinyUrl\target\**
+SetTinyUrl\target\**
+SetTinyUrl\target
+/SetTinyUrl/target/
