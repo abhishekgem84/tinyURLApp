@@ -37,14 +37,14 @@ public class SaveAndGetTinyURL {
 	@PostMapping(path = "/getShortURL", consumes = "application/json", produces = "application/json")
 	// @TimeLimiter(name = "application1") not implementing this as reactor package
 	// will bre required
-	@CircuitBreaker(name = "application1", fallbackMethod = "fallback")
-	public TinyUrlDetailsPojo convertToShortUrl(@Valid @RequestBody LongUrlDetailsPojo longUrlDetailsPojo)
+	@CircuitBreaker(name = "application1", fallbackMethod = "fallBack")
+	public TinyUrlDetailsPojo requestToconvertToShortUrl(@Valid @RequestBody LongUrlDetailsPojo longUrlDetailsPojo)
 			throws TinySequenceException {
 		log.info("Request received ....");
-		return new TinyUrlDetailsPojo(tinyURLService.setTinyURL(longUrlDetailsPojo.getLongUrl()));
+		return new TinyUrlDetailsPojo(tinyURLService.setTinyURL(longUrlDetailsPojo.getLongUrl()), null);
 	}
 
-	private String fallback(Exception ex) {
-		return "Getting Error in service " + ex.toString();
+	private TinyUrlDetailsPojo fallBack(Exception ex) {
+		return new TinyUrlDetailsPojo("", "Getting Error in service " + ex.toString());
 	}
 }

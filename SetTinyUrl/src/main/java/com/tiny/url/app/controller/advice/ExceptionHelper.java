@@ -23,10 +23,10 @@ public class ExceptionHelper {
 		ex.getBindingResult().getAllErrors().forEach(error -> {
 			String fieldName = ((FieldError) error).getField();
 			String errorMessage = error.getDefaultMessage();
-			errors.put(fieldName, errorMessage);			
+			errors.put(fieldName, errorMessage);
 		});
 		errors.put("timeStamp", LocalDateTime.now().toString());
-		return new ResponseEntity<>(errors,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
 
 	}
 }

@@ -1,6 +1,7 @@
 <included>
     <property name="APP_LOG" value="d:/logs/tinyurlapp" />
     <appender name="LOG-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <immediateFlush>true</immediateFlush>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
             <fileNamePattern>${APP_LOG}/%d{dd-MM-yyyy, aux}/log_%d{HH}.log
@@ -25,6 +26,7 @@
         </encoder>
     </appender>
     <appender name="REQ-RES-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <immediateFlush>true</immediateFlush>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- rollover daily -->
             <fileNamePattern>${APP_LOG}/%d{dd-MM-yyyy, aux}/req_res_%d{HH}.log
@@ -36,13 +38,13 @@
 					- %msg%ex{full}%n</pattern>
         </encoder>
     </appender>
-    <!-- logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="DEBUG" additivity="false">
+    <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter" level="DEBUG" additivity="false">
         <appender-ref ref="ACCCESS-FILE" />
     </logger>
     <logger name="org.request.response.logging" level="DEBUG" additivity="false">
         <appender-ref ref="REQ-RES-FILE" />
     </logger>
-    <Logger name="org.hibernate.cache" level="debug" additivity="false">
+    <!--<Logger name="org.hibernate.cache" level="debug" additivity="false">
         <appender-ref ref="LOG-FILE" />
     </Logger>
     <Logger name="org.ehcache" level="debug" additivity="false">
