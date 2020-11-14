@@ -9,7 +9,7 @@
 
         </rollingPolicy>
         <encoder>
-            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] %class{5}
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] [%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] ${PID:- } %class{5}
 					- %msg%ex{full}%n</pattern>
         </encoder>
     </appender>
@@ -21,7 +21,7 @@
 
         </rollingPolicy>
         <encoder>
-            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] %class{5}
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] [%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] ${PID:- } %class{5}
 					- %msg%ex{full}%n</pattern>
         </encoder>
     </appender>
@@ -33,7 +33,7 @@
 
         </rollingPolicy>
         <encoder>
-            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] %class{5}
+            <pattern>%d{dd-MMM-yyyy HH:mm:ss.SSS} [%-5level- %M - %L] [%X{X-B3-TraceId:-},%X{X-B3-SpanId:-},%X{X-Span-Export:-}] ${PID:- } %class{5}
 					- %msg%ex{full}%n</pattern>
         </encoder>
     </appender>
@@ -49,7 +49,7 @@
     <Logger name="org.ehcache" level="debug" additivity="false">
         <appender-ref ref="LOG-FILE" />
     </Logger -->
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="LOG-FILE" />
     </root>
 </included>
